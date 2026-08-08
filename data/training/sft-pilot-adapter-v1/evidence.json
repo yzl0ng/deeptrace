@@ -1,0 +1,69 @@
+{
+  "evidence_version": "sft-pilot-adapter-v1",
+  "status": "succeeded",
+  "adapter_export": {
+    "source_checkpoint": "checkpoints/sft-pilot-smoke-v1/global_step_1",
+    "remote_path": "checkpoints/sft-pilot-smoke-v1/adapter_step_1",
+    "world_size": 2,
+    "lora_rank": 16,
+    "lora_alpha": 32,
+    "tensor_count": 504,
+    "adapter_parameter_count": 43646976,
+    "artifacts": [
+      {
+        "path": "adapter_config.json",
+        "bytes": 1226,
+        "sha256": "78127a2526d7af6baaec56d0d2259090f694d410c969440b91d7deb246213ec3"
+      },
+      {
+        "path": "adapter_model.safetensors",
+        "bytes": 87361592,
+        "sha256": "ec1b3a044737fcbc9b72ffa6890aca20ae0aebe98687c9b0c1655c21c9b77369"
+      }
+    ]
+  },
+  "load_validation": {
+    "status": "succeeded",
+    "physical_device": 4,
+    "active_adapter": "default",
+    "generated_tokens": 8,
+    "artifact": {
+      "path": "load-validation.json",
+      "bytes": 762,
+      "sha256": "597a1bc9fbedefa6d8a0b6be04ce992def34b85cfd534d3e328bd3dddc56a487"
+    },
+    "postflight_memory_mib": 11,
+    "postflight_utilization_percent": 0
+  },
+  "resume_validation": {
+    "status": "succeeded",
+    "source_step": 1,
+    "completed_step": 2,
+    "selected_physical_devices": [4, 5],
+    "loaded_contents": ["model", "extra"],
+    "restored_state": ["model", "rng", "lr_scheduler", "dataloader"],
+    "optimizer_state_restored": false,
+    "train_loss": 1.5601911544799805,
+    "validation_loss": 1.3273423910140991,
+    "train_step_seconds": 5.487886190414429,
+    "saved_contents": ["extra"],
+    "artifacts": [
+      {
+        "path": "extra_state_world_size_2_rank_0.pt",
+        "bytes": 15141,
+        "sha256": "19f8936818a4514a0bc868bc34307a88c19ca0cfb60f3500a06f9f2388e87574"
+      },
+      {
+        "path": "extra_state_world_size_2_rank_1.pt",
+        "bytes": 15141,
+        "sha256": "413bcbd6504bee217fc614877694fba66ed33f3c870ffe18aa30abaa2d505612"
+      },
+      {
+        "path": "data.pt",
+        "bytes": 1947,
+        "sha256": "33bc260d6a70378884953e60727a7ad6545046006fa4b562ef1512eb93af2b29"
+      }
+    ]
+  },
+  "truth_boundary": "Adapter export, PEFT loading, bounded generation, and model/data-state resume are proven. Optimizer moments were not saved in the source smoke, and no model-quality improvement is claimed."
+}

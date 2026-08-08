@@ -1,0 +1,411 @@
+{
+  "config": {
+    "experiment_id": "retrieval-quality-v1",
+    "generated_at": "2026-07-24T08:38:43.477719+00:00",
+    "corpus_version": "quality-v1",
+    "corpus_hash": "1eb9d403b5c23f199b4c63a859df46f2493aec7338a60121637f2ac44ad8fc62",
+    "quality_corpus_documents": 5183,
+    "quality_corpus_chunks": 5183,
+    "query_set_version": "retrieval-v1",
+    "reviewed_queries": 38,
+    "retrievers": [
+      "bm25",
+      "dense_exact",
+      "rrf"
+    ],
+    "embedding_model": "BAAI/bge-m3",
+    "device": "cpu",
+    "vector_dimension": 1024,
+    "top_k": 10,
+    "parameters": {
+      "bm25": {
+        "documents": 5183,
+        "unique_terms": 58891,
+        "average_document_length": 228.067,
+        "index_version": 1,
+        "k1": 1.5,
+        "b": 0.75,
+        "title_weight": 2.0
+      },
+      "dense_exact": {
+        "normalized": true,
+        "similarity": "exact NumPy dot product / cosine"
+      },
+      "rrf": {
+        "rank_constant": 60,
+        "candidate_k": 20
+      }
+    },
+    "embedding_cache": {
+      "cache_key": "b024719a23c7aa7f61271c96",
+      "cache_dir": "data/index/evaluation/b024719a23c7aa7f61271c96",
+      "cache_hit": true,
+      "model_name": "BAAI/bge-m3",
+      "device": "cpu",
+      "dimension": 1024,
+      "normalized": true,
+      "corpus_hash": "1eb9d403b5c23f199b4c63a859df46f2493aec7338a60121637f2ac44ad8fc62",
+      "documents": 5183,
+      "build_time_ms": 8.861000009346753
+    },
+    "recall_definitions": {
+      "retrieval_recall": "Human-qrel relevant chunks retrieved divided by all human-qrel relevant chunks.",
+      "ann_recall": "HNSW Top-K overlap with exact dense Top-K; not measured in this experiment."
+    }
+  },
+  "summary": {
+    "bm25": {
+      "queries": 38,
+      "recall@1": 0.5350877192982456,
+      "recall@3": 0.6557017543859649,
+      "recall@5": 0.6885964912280702,
+      "recall@10": 0.7675438596491229,
+      "precision@5": 0.15263157894736845,
+      "precision@10": 0.08421052631578947,
+      "mrr": 0.6350877192982456,
+      "ndcg@5": 0.6339569048294958,
+      "ndcg@10": 0.6603116206330203,
+      "latency": {
+        "queries": 38,
+        "average_ms": 101.17335000387884,
+        "p50_ms": 70.33,
+        "p95_ms": 228.67,
+        "min_ms": 8.037099963985384,
+        "max_ms": 249.7266999562271
+      }
+    },
+    "dense_exact": {
+      "queries": 38,
+      "recall@1": 0.6206140350877193,
+      "recall@3": 0.7675438596491229,
+      "recall@5": 0.7675438596491229,
+      "recall@10": 0.8333333333333334,
+      "precision@5": 0.16842105263157894,
+      "precision@10": 0.09473684210526316,
+      "mrr": 0.7178362573099415,
+      "ndcg@5": 0.7148395416543254,
+      "ndcg@10": 0.7392190165388908,
+      "latency": {
+        "queries": 38,
+        "average_ms": 91.26089737401344,
+        "p50_ms": 89.12,
+        "p95_ms": 99.92,
+        "min_ms": 78.7030000356026,
+        "max_ms": 186.0554000013508
+      }
+    },
+    "rrf": {
+      "queries": 38,
+      "recall@1": 0.5942982456140351,
+      "recall@3": 0.7083333333333334,
+      "recall@5": 0.7412280701754387,
+      "recall@10": 0.8530701754385964,
+      "precision@5": 0.1631578947368421,
+      "precision@10": 0.09473684210526316,
+      "mrr": 0.7022243107769424,
+      "ndcg@5": 0.6880877379484107,
+      "ndcg@10": 0.7273335081501425,
+      "latency": {
+        "queries": 38,
+        "average_ms": 214.87534736852945,
+        "p50_ms": 183.58,
+        "p95_ms": 352.3,
+        "min_ms": 97.41569997277111,
+        "max_ms": 368.56780003290623
+      }
+    }
+  },
+  "comparison_cases": {
+    "BM25 beats Dense": [
+      {
+        "query_id": "scifact-q-644",
+        "query": "Insulin increases risk of severe kidney failure.",
+        "bm25": 1.0,
+        "dense": 0.0,
+        "rrf": 0.6309297535714575
+      },
+      {
+        "query_id": "scifact-q-533",
+        "query": "Hyperfibrinogenemia increases rates of femoropopliteal bypass thrombosis.",
+        "bm25": 1.0,
+        "dense": 0.5,
+        "rrf": 1.0
+      },
+      {
+        "query_id": "scifact-q-1344",
+        "query": "Up-regulation of the p53 pathway and related molecular events casues cancer resistance and results in a significantly shortened lifespan marked by senescent cells and accelerated organismal aging.",
+        "bm25": 1.0,
+        "dense": 0.6309297535714575,
+        "rrf": 1.0
+      },
+      {
+        "query_id": "scifact-q-312",
+        "query": "De novo assembly of sequence data has more specific contigs than unassembled sequence data.",
+        "bm25": 0.2890648263178879,
+        "dense": 0.0,
+        "rrf": 0.0
+      },
+      {
+        "query_id": "scifact-q-527",
+        "query": "Homozygous deletion of murine Sbds gene from osterix-expressing mesenchymal stem and progenitor cells (MPCs) prevents oxidative stress.",
+        "bm25": 0.6309297535714575,
+        "dense": 0.5,
+        "rrf": 1.0
+      },
+      {
+        "query_id": "scifact-q-183",
+        "query": "Bone marrow cells contribute to adult macrophage compartments.",
+        "bm25": 0.3562071871080222,
+        "dense": 0.3010299956639812,
+        "rrf": 0.5
+      }
+    ],
+    "Dense beats BM25": [
+      {
+        "query_id": "scifact-q-1221",
+        "query": "The genomic aberrations found in matasteses are very similar to those found in the primary tumor.",
+        "bm25": 0.0,
+        "dense": 1.0,
+        "rrf": 0.43067655807339306
+      },
+      {
+        "query_id": "scifact-q-1241",
+        "query": "The myocardial lineage develops from cardiac progenitors of mesodermal origin.",
+        "bm25": 0.0,
+        "dense": 1.0,
+        "rrf": 0.3333333333333333
+      },
+      {
+        "query_id": "scifact-q-1395",
+        "query": "p16INK4A accumulation is  linked to an abnormal wound response caused by the microinvasive step of advanced Oral Potentially Malignant Lesions (OPMLs).",
+        "bm25": 0.0,
+        "dense": 1.0,
+        "rrf": 0.3562071871080222
+      },
+      {
+        "query_id": "scifact-q-1259",
+        "query": "The relationship between a breast cancer patient's capacity to metabolize tamoxifen and treatment outcome is dependent on the patient's genetic make-up.",
+        "bm25": 0.38685280723454163,
+        "dense": 1.0,
+        "rrf": 0.6309297535714575
+      },
+      {
+        "query_id": "scifact-q-577",
+        "query": "In mice, P. chabaudi parasites are able to proliferate faster early in infection when inoculated at lower numbers than when inoculated at high numbers.",
+        "bm25": 0.0,
+        "dense": 0.5,
+        "rrf": 0.31546487678572877
+      },
+      {
+        "query_id": "scifact-q-1379",
+        "query": "Women with a higher birth weight are more likely to develop breast cancer later in life.",
+        "bm25": 0.4144299250118475,
+        "dense": 0.9058653015743079,
+        "rrf": 0.6886342695939197
+      },
+      {
+        "query_id": "scifact-q-1194",
+        "query": "The arm density of TatAd complexes is due to structural rearrangements within Class1 TatAd complexes such as the 'charge zipper mechanism'.",
+        "bm25": 0.6309297535714575,
+        "dense": 1.0,
+        "rrf": 1.0
+      },
+      {
+        "query_id": "scifact-q-1207",
+        "query": "The composition of myosin-II isoform switches from the polarizable B isoform to the more homogenous A isoform during hematopoietic differentiation.",
+        "bm25": 0.6309297535714575,
+        "dense": 1.0,
+        "rrf": 1.0
+      }
+    ],
+    "RRF improves over both": [
+      {
+        "query_id": "scifact-q-527",
+        "query": "Homozygous deletion of murine Sbds gene from osterix-expressing mesenchymal stem and progenitor cells (MPCs) prevents oxidative stress.",
+        "bm25": 0.6309297535714575,
+        "dense": 0.5,
+        "rrf": 1.0
+      },
+      {
+        "query_id": "scifact-q-183",
+        "query": "Bone marrow cells contribute to adult macrophage compartments.",
+        "bm25": 0.3562071871080222,
+        "dense": 0.3010299956639812,
+        "rrf": 0.5
+      }
+    ],
+    "RRF regression": [
+      {
+        "query_id": "scifact-q-1221",
+        "query": "The genomic aberrations found in matasteses are very similar to those found in the primary tumor.",
+        "bm25": 0.0,
+        "dense": 1.0,
+        "rrf": 0.43067655807339306
+      },
+      {
+        "query_id": "scifact-q-1241",
+        "query": "The myocardial lineage develops from cardiac progenitors of mesodermal origin.",
+        "bm25": 0.0,
+        "dense": 1.0,
+        "rrf": 0.3333333333333333
+      },
+      {
+        "query_id": "scifact-q-1395",
+        "query": "p16INK4A accumulation is  linked to an abnormal wound response caused by the microinvasive step of advanced Oral Potentially Malignant Lesions (OPMLs).",
+        "bm25": 0.0,
+        "dense": 1.0,
+        "rrf": 0.3562071871080222
+      },
+      {
+        "query_id": "scifact-q-644",
+        "query": "Insulin increases risk of severe kidney failure.",
+        "bm25": 1.0,
+        "dense": 0.0,
+        "rrf": 0.6309297535714575
+      },
+      {
+        "query_id": "scifact-q-1259",
+        "query": "The relationship between a breast cancer patient's capacity to metabolize tamoxifen and treatment outcome is dependent on the patient's genetic make-up.",
+        "bm25": 0.38685280723454163,
+        "dense": 1.0,
+        "rrf": 0.6309297535714575
+      },
+      {
+        "query_id": "scifact-q-577",
+        "query": "In mice, P. chabaudi parasites are able to proliferate faster early in infection when inoculated at lower numbers than when inoculated at high numbers.",
+        "bm25": 0.0,
+        "dense": 0.5,
+        "rrf": 0.31546487678572877
+      },
+      {
+        "query_id": "scifact-q-1379",
+        "query": "Women with a higher birth weight are more likely to develop breast cancer later in life.",
+        "bm25": 0.4144299250118475,
+        "dense": 0.9058653015743079,
+        "rrf": 0.6886342695939197
+      },
+      {
+        "query_id": "scifact-q-312",
+        "query": "De novo assembly of sequence data has more specific contigs than unassembled sequence data.",
+        "bm25": 0.2890648263178879,
+        "dense": 0.0,
+        "rrf": 0.0
+      }
+    ]
+  },
+  "extreme_cases": {
+    "bm25": {
+      "worst": {
+        "query_id": "scifact-q-1221",
+        "query": "The genomic aberrations found in matasteses are very similar to those found in the primary tumor.",
+        "metrics": {
+          "recall@1": 0.0,
+          "recall@3": 0.0,
+          "recall@5": 0.0,
+          "recall@10": 0.0,
+          "precision@5": 0.0,
+          "precision@10": 0.0,
+          "mrr": 0.0,
+          "ndcg@5": 0.0,
+          "ndcg@10": 0.0
+        }
+      },
+      "best": {
+        "query_id": "scifact-q-644",
+        "query": "Insulin increases risk of severe kidney failure.",
+        "metrics": {
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0,
+          "ndcg@5": 1.0,
+          "ndcg@10": 1.0
+        }
+      }
+    },
+    "dense_exact": {
+      "worst": {
+        "query_id": "scifact-q-312",
+        "query": "De novo assembly of sequence data has more specific contigs than unassembled sequence data.",
+        "metrics": {
+          "recall@1": 0.0,
+          "recall@3": 0.0,
+          "recall@5": 0.0,
+          "recall@10": 0.0,
+          "precision@5": 0.0,
+          "precision@10": 0.0,
+          "mrr": 0.0,
+          "ndcg@5": 0.0,
+          "ndcg@10": 0.0
+        }
+      },
+      "best": {
+        "query_id": "scifact-q-636",
+        "query": "Inositol lipid 3-phosphatase PTEN converts Ptdlns(3,4)P 2 into phosphatidylinositol 4-phosphate.",
+        "metrics": {
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0,
+          "ndcg@5": 1.0,
+          "ndcg@10": 1.0
+        }
+      }
+    },
+    "rrf": {
+      "worst": {
+        "query_id": "scifact-q-312",
+        "query": "De novo assembly of sequence data has more specific contigs than unassembled sequence data.",
+        "metrics": {
+          "recall@1": 0.0,
+          "recall@3": 0.0,
+          "recall@5": 0.0,
+          "recall@10": 0.0,
+          "precision@5": 0.0,
+          "precision@10": 0.0,
+          "mrr": 0.0,
+          "ndcg@5": 0.0,
+          "ndcg@10": 0.0
+        }
+      },
+      "best": {
+        "query_id": "scifact-q-636",
+        "query": "Inositol lipid 3-phosphatase PTEN converts Ptdlns(3,4)P 2 into phosphatidylinositol 4-phosphate.",
+        "metrics": {
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "precision@5": 0.2,
+          "precision@10": 0.1,
+          "mrr": 1.0,
+          "ndcg@5": 1.0,
+          "ndcg@10": 1.0
+        }
+      }
+    }
+  },
+  "failure_counts": {
+    "corpus_missing": 0,
+    "lexical_mismatch": 5,
+    "dense_false_positive": 2,
+    "acronym_failure": 0,
+    "chunk_too_short": 0,
+    "chunk_too_long": 0,
+    "duplicate_content": 0,
+    "fusion_regression": 8,
+    "annotation_uncertain": 0,
+    "no_answer_false_positive": 0
+  },
+  "limitations": [
+    "SciFact qrels are binary. The evaluator supports graded relevance, but this baseline only exercises grade 1.",
+    "The corpus is English scientific text rather than a Chinese SearchLab-domain benchmark.",
+    "HNSW, Qdrant, Reranker and LLM generation are not measured."
+  ]
+}

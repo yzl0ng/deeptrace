@@ -1,0 +1,16 @@
+{
+  "evidence_version": "sft-trajectory-500-v1",
+  "status": "succeeded",
+  "artifacts": [
+    {
+      "path": "evidence.json",
+      "bytes": 2638,
+      "sha256": "d7e1a9d177e6c7c006d49ac1130cd484a9ad7e5bb855ae4c68fcd8badb27c9c4"
+    },
+    {
+      "path": "report.md",
+      "bytes": 1087,
+      "sha256": "66c06502b6d20ad9e5169dba68e0c5d58b621fffee964b49fa2c31e39b4e865d"
+    }
+  ]
+}

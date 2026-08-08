@@ -1,0 +1,16 @@
+{
+  "evidence_version": "sft-pilot-smoke-v1",
+  "status": "succeeded",
+  "artifacts": [
+    {
+      "path": "evidence.json",
+      "bytes": 2382,
+      "sha256": "c9dbc91cd575b52ef547142a731c32f8c5dc3a3a5afa87385ed8a459f7dd021b"
+    },
+    {
+      "path": "report.md",
+      "bytes": 1116,
+      "sha256": "98364c8b62254a0453d46a35cb9ceb03b62f709c688758f223760333578f5d33"
+    }
+  ]
+}

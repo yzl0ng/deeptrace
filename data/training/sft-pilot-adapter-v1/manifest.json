@@ -1,0 +1,16 @@
+{
+  "evidence_version": "sft-pilot-adapter-v1",
+  "status": "succeeded",
+  "artifacts": [
+    {
+      "path": "evidence.json",
+      "bytes": 2318,
+      "sha256": "a3355e8cf5b9ba8bfd20b1ba8ea28b25f641f6a70ad4ffd0ed6d74f68c112a83"
+    },
+    {
+      "path": "report.md",
+      "bytes": 1232,
+      "sha256": "e3afd3fc66f94d8f09011779786904080e47d221642de087dac65f38657db29d"
+    }
+  ]
+}

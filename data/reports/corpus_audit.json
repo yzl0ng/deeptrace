@@ -1,0 +1,206 @@
+{
+  "generated_at": "2026-07-24T07:20:44.214516+00:00",
+  "corpus_version": "corpora-v1",
+  "corpus_content_hash": "57517bc1c2efe81f656f2f5aa7d8b4141838bb3a712306e2097e40a9dc9261e5",
+  "thresholds": {
+    "too_short_chars": 200,
+    "too_long_chars": 4000
+  },
+  "profiles": {
+    "quality": {
+      "source_records": 5183,
+      "documents": 5183,
+      "chunks": 5183,
+      "unique_chunk_ids": 5183,
+      "empty_text": 0,
+      "duplicate_text_after_dedup": 0,
+      "exact_duplicates_removed": 0,
+      "near_duplicate_method": "64-bit token SimHash, four 16-bit bands, Hamming distance <= 3",
+      "near_duplicate_pairs_approx": 0,
+      "near_duplicate_samples": [],
+      "character_length": {
+        "average": 1400.93,
+        "p50": 1329.0,
+        "p95": 2322.8,
+        "minimum": 174,
+        "maximum": 10000
+      },
+      "too_short_threshold": 200,
+      "too_short_chunks": 1,
+      "too_long_threshold": 4000,
+      "too_long_chunks": 17,
+      "language_distribution": {
+        "en": 5183
+      },
+      "source_distribution": {
+        "https://public.ukp.informatik.tu-darmstadt.de/thakur/BEIR/datasets/scifact.zip": 5183
+      },
+      "source_type_distribution": {
+        "benchmark": 5183
+      },
+      "topic_distribution": {
+        "scientific-claim-verification": 5183
+      },
+      "license_distribution": {
+        "See SciFact source dataset and BEIR disclaimer": 5183
+      },
+      "missing_title": 0,
+      "missing_source": 0,
+      "invalid_url": 0,
+      "encoding_anomaly": 3,
+      "html_or_script_residue": 2
+    },
+    "scale": {
+      "source_records": 50000,
+      "documents": 49294,
+      "chunks": 49294,
+      "unique_chunk_ids": 49294,
+      "empty_text": 0,
+      "duplicate_text_after_dedup": 0,
+      "exact_duplicates_removed": 706,
+      "near_duplicate_method": "64-bit token SimHash, four 16-bit bands, Hamming distance <= 3",
+      "near_duplicate_pairs_approx": 2392,
+      "near_duplicate_samples": [
+        {
+          "left_chunk_id": "trec-covid-chunk-00bf6175cb743026dcd1",
+          "right_chunk_id": "trec-covid-chunk-01a8455a92396705e872",
+          "hamming_distance": 3
+        },
+        {
+          "left_chunk_id": "trec-covid-chunk-0241cdf297277c69eaa9",
+          "right_chunk_id": "trec-covid-chunk-07e687757302ebfeff47",
+          "hamming_distance": 1
+        },
+        {
+          "left_chunk_id": "trec-covid-chunk-07b3393d5dfd71309159",
+          "right_chunk_id": "trec-covid-chunk-08a9aaefa2c70221f4b4",
+          "hamming_distance": 0
+        },
+        {
+          "left_chunk_id": "trec-covid-chunk-05597a94ac4cadf5ff4d",
+          "right_chunk_id": "trec-covid-chunk-094b04ceb4cb0fe96354",
+          "hamming_distance": 3
+        },
+        {
+          "left_chunk_id": "trec-covid-chunk-08fafe124c92526943e4",
+          "right_chunk_id": "trec-covid-chunk-0a77d3b0f470041d5694",
+          "hamming_distance": 0
+        },
+        {
+          "left_chunk_id": "trec-covid-chunk-034809134f3a0a337155",
+          "right_chunk_id": "trec-covid-chunk-0b53ab1c37fbf472df55",
+          "hamming_distance": 0
+        },
+        {
+          "left_chunk_id": "trec-covid-chunk-05a15c8fd389769e3762",
+          "right_chunk_id": "trec-covid-chunk-0b8d5a63a44af6f0e632",
+          "hamming_distance": 0
+        },
+        {
+          "left_chunk_id": "trec-covid-chunk-085482c4d343aede541d",
+          "right_chunk_id": "trec-covid-chunk-0badcc803761c273d444",
+          "hamming_distance": 0
+        },
+        {
+          "left_chunk_id": "trec-covid-chunk-05fe2ccbcad3c407d4c7",
+          "right_chunk_id": "trec-covid-chunk-0caeca714161e6717608",
+          "hamming_distance": 0
+        },
+        {
+          "left_chunk_id": "trec-covid-chunk-0386f8041ec05816bbcf",
+          "right_chunk_id": "trec-covid-chunk-0d87825a125acfb1fb52",
+          "hamming_distance": 0
+        },
+        {
+          "left_chunk_id": "trec-covid-chunk-00da70fd02ee204b92df",
+          "right_chunk_id": "trec-covid-chunk-0df66000167020408640",
+          "hamming_distance": 0
+        },
+        {
+          "left_chunk_id": "trec-covid-chunk-047e2a0d9bd459a5c351",
+          "right_chunk_id": "trec-covid-chunk-0ea2931fe898785cde63",
+          "hamming_distance": 2
+        },
+        {
+          "left_chunk_id": "trec-covid-chunk-0d660946e9c37f7ce63e",
+          "right_chunk_id": "trec-covid-chunk-0efc2b5917f8fef18a91",
+          "hamming_distance": 0
+        },
+        {
+          "left_chunk_id": "trec-covid-chunk-074e9c47415cde27274a",
+          "right_chunk_id": "trec-covid-chunk-0f14d0ec28e1b38cb1c7",
+          "hamming_distance": 0
+        },
+        {
+          "left_chunk_id": "trec-covid-chunk-012cf853f6f3a1a97c7a",
+          "right_chunk_id": "trec-covid-chunk-108c02264d3eb071d3de",
+          "hamming_distance": 1
+        },
+        {
+          "left_chunk_id": "trec-covid-chunk-01c9c6ead051c97872ce",
+          "right_chunk_id": "trec-covid-chunk-108d3dc4b7958b7bcd9b",
+          "hamming_distance": 0
+        },
+        {
+          "left_chunk_id": "trec-covid-chunk-08324b2d5867c65a606c",
+          "right_chunk_id": "trec-covid-chunk-12172739b9bd19bf37e0",
+          "hamming_distance": 0
+        },
+        {
+          "left_chunk_id": "trec-covid-chunk-0ca22d213bc8f9bbe6dc",
+          "right_chunk_id": "trec-covid-chunk-131d409064f4cf8eb6c6",
+          "hamming_distance": 0
+        },
+        {
+          "left_chunk_id": "trec-covid-chunk-03ecec87f0178a5b4c49",
+          "right_chunk_id": "trec-covid-chunk-14533498c62ebc6b88e3",
+          "hamming_distance": 0
+        },
+        {
+          "left_chunk_id": "trec-covid-chunk-067982d6bb3dc75e090b",
+          "right_chunk_id": "trec-covid-chunk-15a6000e9b19aa2b4735",
+          "hamming_distance": 0
+        }
+      ],
+      "character_length": {
+        "average": 1098.59,
+        "p50": 1136.0,
+        "p95": 2274.0,
+        "minimum": 1,
+        "maximum": 119922
+      },
+      "too_short_threshold": 200,
+      "too_short_chunks": 11082,
+      "too_long_threshold": 4000,
+      "too_long_chunks": 151,
+      "language_distribution": {
+        "en": 49294
+      },
+      "source_distribution": {
+        "https://public.ukp.informatik.tu-darmstadt.de/thakur/BEIR/datasets/trec-covid.zip": 49294
+      },
+      "source_type_distribution": {
+        "benchmark": 49294
+      },
+      "topic_distribution": {
+        "biomedical-retrieval": 49294
+      },
+      "license_distribution": {
+        "See TREC-COVID, CORD-19 and document-level licenses": 49294
+      },
+      "missing_title": 2,
+      "missing_source": 0,
+      "invalid_url": 0,
+      "encoding_anomaly": 3,
+      "html_or_script_residue": 5
+    }
+  },
+  "sources": [
+    "https://public.ukp.informatik.tu-darmstadt.de/thakur/BEIR/datasets/scifact.zip",
+    "https://public.ukp.informatik.tu-darmstadt.de/thakur/BEIR/datasets/trec-covid.zip"
+  ],
+  "licenses": [
+    "See SciFact source dataset and BEIR disclaimer",
+    "See TREC-COVID, CORD-19 and document-level licenses"
+  ]
+}

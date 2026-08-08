@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "selection_status": "downloaded_not_runtime_validated",
+  "model_id": "Qwen/Qwen3-8B",
+  "revision": "b968826d9c46dd6066d109eabc6255188de91218",
+  "source": "https://huggingface.co/api/models/Qwen/Qwen3-8B",
+  "license": "Apache-2.0",
+  "architecture": "Qwen3ForCausalLM",
+  "parameter_count": 8190735360,
+  "native_context_length": 32768,
+  "tool_call_template": true,
+  "agent_r1_family_evidence": "The pinned Agent-R1 commit documents Qwen3-4B experiments and tool-use recipes.",
+  "local_path": "/data/$USER/searchlab-v2/models/Qwen--Qwen3-8B/b968826d9c46dd6066d109eabc6255188de91218",
+  "download_evidence": "data/system/model-bootstrap-v1/report.md",
+  "runtime_validated": true,
+  "runtime_evidence": "data/system/gpu-runtime-smoke-v1/report.md",
+  "weights_downloaded": true,
+  "selected_at": "2026-07-29",
+  "truth_boundary": "This lock proves model identity, immutable revision, license, architecture metadata, a tool-call chat template, a complete size/hash-verified local snapshot, and one bounded single-GPU vLLM inference smoke. Multi-GPU communication, SFT, Agent-R1/veRL training, quality, and throughput remain unvalidated."
+}

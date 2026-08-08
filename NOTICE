@@ -1,0 +1,32 @@
+DeepTrace-R1
+Copyright 2026 DeepTrace contributors
+
+This product uses third-party packages and studies the reference systems listed
+below. The pinned reference repositories are not vendored into this source tree.
+DeepTrace has not copied source files from those pinned reference repositories.
+
+Open Deep Research
+Copyright (c) 2025 LangChain
+Licensed under the MIT License.
+https://github.com/langchain-ai/open_deep_research
+
+Agent-R1
+Copyright (c) 2025 Agent-R1 Teams
+Licensed under the MIT License.
+https://github.com/AgentR1/Agent-R1
+
+veRL
+Copyright 2024 ByteDance Ltd. and/or its affiliates
+Licensed under the Apache License, Version 2.0.
+https://github.com/verl-project/verl
+
+Additional dependencies, reference-only projects and their license status are
+documented in THIRD_PARTY.md. If source is later copied or modified, this NOTICE
+must be updated with the applicable upstream notices and attribution.
+
+The frozen Agentic Search and final tool-loop evaluation subsets contain
+attributed records from
+HotpotQA (CC BY-SA 4.0), 2WikiMultiHopQA (Apache 2.0), and MuSiQue
+(CC BY 4.0). Dataset-specific revisions, source URLs, citations, and
+share-alike boundaries are recorded in
+`data/evaluation/agentic-search-v1/SOURCES.md` and the final-test manifest.

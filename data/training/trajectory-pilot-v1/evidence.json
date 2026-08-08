@@ -1,0 +1,62 @@
+{
+  "evidence_version": "trajectory-pilot-v1",
+  "status": "succeeded",
+  "generated_at": "2026-07-29",
+  "teacher": "DeepSeek API",
+  "requested": 100,
+  "accepted": 99,
+  "rejected": 1,
+  "acceptance_rate": 0.99,
+  "token_usage": {
+    "prompt": 22269,
+    "completion": 126890,
+    "total": 149159
+  },
+  "filtering": {
+    "schema_validation": true,
+    "seed_query_match": true,
+    "evidence_id_validation": true,
+    "secret_pattern_rejection": true,
+    "duplicate_ids": 0,
+    "duplicate_record_hashes": 0
+  },
+  "tokenizer_validation": {
+    "model": "Qwen/Qwen3-8B",
+    "records": 99,
+    "minimum_tokens": 171,
+    "median_tokens": 421,
+    "p90_tokens": 579,
+    "p95_tokens": 679,
+    "maximum_tokens": 861,
+    "over_2048": 0,
+    "over_4096": 0
+  },
+  "remote_artifacts": [
+    {
+      "path": "datasets/trajectory-pilot-v1/raw.jsonl",
+      "bytes": 220428,
+      "sha256": "631d4c637d3bdc74b9698e1bb2f5e579663b91336ff02777190416a25c5c9628"
+    },
+    {
+      "path": "datasets/trajectory-pilot-v1/refiltered/sft.jsonl",
+      "bytes": 201987,
+      "sha256": "eea81ccbedd7135ba7da9870cad35f3497d5ecd93ce0b14e49bab8461c36724c"
+    },
+    {
+      "path": "datasets/trajectory-pilot-v1/refiltered/rejected.jsonl",
+      "bytes": 58,
+      "sha256": "3cc380d2eebd129a89cc4bbdea125664d78469c9bdbb59a8d791bbfed201de0d"
+    },
+    {
+      "path": "datasets/sft-pilot-v1/train.parquet",
+      "bytes": 48759,
+      "sha256": "9096973de26981fd7c4825be9661032f34e82a498fc72cd11c5fe632a0c96be3"
+    },
+    {
+      "path": "datasets/sft-pilot-v1/validation.parquet",
+      "bytes": 8773,
+      "sha256": "48559222378f0a22536e423f9fecf3947a5c5ae25432a6803512af1889bb4d6e"
+    }
+  ],
+  "truth_boundary": "This proves a 100-call pilot, deterministic filtering, deduplication, and tokenizer compatibility. It does not prove trajectory correctness, downstream model improvement, or benchmark generalization."
+}

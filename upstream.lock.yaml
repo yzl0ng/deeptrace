@@ -1,0 +1,54 @@
+schema_version: 1
+audited_at: "2026-07-29"
+audit_method: "target-server git ls-remote (HEAD/main or required tag) plus exact-commit LICENSE review"
+components:
+  - name: open-deep-research
+    repository: https://github.com/langchain-ai/open_deep_research
+    commit: d337ae32ed4ff8f4c6fbe192ba3bf1b2d6610799
+    license: MIT
+    reuse_mode: selective-port
+    reused_files: []
+    modified_files: []
+    runtime_validated: false
+  - name: agent-r1
+    repository: https://github.com/AgentR1/Agent-R1
+    commit: b124aa46534cbf2fb8bc8af11405774984c42ac7
+    license: MIT
+    reuse_mode: dependency-and-recipes
+    reused_files: []
+    modified_files: []
+    runtime_validated: false
+  - name: verl
+    repository: https://github.com/verl-project/verl
+    commit: f9c855f7cf04d603c9546bc01776c74806a879c1
+    tag: v0.7.0
+    license: Apache-2.0
+    reuse_mode: dependency
+    reused_files: []
+    modified_files: []
+    runtime_validated: false
+    compatibility_reason: "Pinned Agent-R1 README requires verl==0.7.0"
+  - name: search-r1
+    repository: https://github.com/PeterGriffinJin/Search-R1
+    commit: 598e61bd1d36895726d28a8d06b3a15bed19f5d3
+    license: Apache-2.0
+    reuse_mode: reference-only
+    reused_files: []
+    modified_files: []
+    runtime_validated: false
+  - name: gpt-researcher
+    repository: https://github.com/assafelovic/gpt-researcher
+    commit: 5d84d2f5553e70a2765a8ff3a0d2672d60437ce8
+    license: Apache-2.0
+    reuse_mode: reference-only
+    reused_files: []
+    modified_files: []
+    runtime_validated: false
+  - name: tongyi-deepresearch
+    repository: https://github.com/Alibaba-NLP/DeepResearch
+    commit: f72f75d8c3eb842f2bbbab096a12206ff66e270f
+    license: Apache-2.0
+    reuse_mode: reference-only
+    reused_files: []
+    modified_files: []
+    runtime_validated: false

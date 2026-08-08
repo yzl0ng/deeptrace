@@ -1,0 +1,84 @@
+{
+  "evidence_version": "sft-trajectory-500-v1",
+  "status": "succeeded",
+  "configuration": {
+    "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+    "trainer": "veRL f9c855f7cf04d603c9546bc01776c74806a879c1",
+    "strategy": "FSDP2",
+    "world_size": 2,
+    "dtype": "bf16",
+    "lora_rank": 16,
+    "lora_alpha": 32,
+    "max_length": 1024,
+    "micro_batch_size_per_gpu": 1,
+    "optimizer_steps": 10
+  },
+  "selected_physical_devices": [4, 5],
+  "train_losses": [
+    1.3950251340866089,
+    1.2217015027999878,
+    1.3253943920135498,
+    1.431656002998352,
+    1.5165295600891113,
+    1.452683687210083,
+    1.1019701957702637,
+    1.397783875465393,
+    1.5486979484558105,
+    1.3462753295898438
+  ],
+  "final_validation_loss": 1.4181461334228516,
+  "total_train_step_seconds": 32.09,
+  "train_log": {
+    "bytes": 27349,
+    "sha256": "41d67142aadebdd32620ac73dcddfe3fd216b05af4f5ca38d2dfbde64c61e192"
+  },
+  "checkpoint": {
+    "remote_path": "checkpoints/sft-trajectory-500-run-v1/global_step_10",
+    "model_shards": [
+      {
+        "rank": 0,
+        "bytes": 8235087103,
+        "sha256": "2e33e8d6b9db210c42bc055e7c4d704395143a8e7d13cd496564fde6177b1a71"
+      },
+      {
+        "rank": 1,
+        "bytes": 8235087103,
+        "sha256": "ecd5e177bf051a8ac94c82408e1562f6b7fadca6679742a83156ffa3f1a2aad9"
+      }
+    ],
+    "optimizer_shards": [
+      {
+        "rank": 0,
+        "bytes": 87876220,
+        "sha256": "66c46cc994657c9d2884929641b2ea1565a224709d907e2a3edc2899e0a3dde2"
+      },
+      {
+        "rank": 1,
+        "bytes": 87876220,
+        "sha256": "8507c3ea0987ffaf353e06c5cc2a1bb6e2f898f44eff95a077a7fb7cbba3f11e"
+      }
+    ]
+  },
+  "adapter": {
+    "tensor_count": 504,
+    "parameters": 43646976,
+    "bytes": 87361592,
+    "sha256": "2e59ea513d8b7157cd9ca088473444b228269b72512d32407bb3692164b54e51",
+    "load_and_generate_status": "succeeded"
+  },
+  "optimizer_resume": {
+    "status": "succeeded",
+    "source_step": 10,
+    "completed_step": 11,
+    "loaded": ["model", "optimizer", "rng", "lr_scheduler", "dataloader"],
+    "train_loss": 1.4372742176055908,
+    "validation_loss": 1.4156607389450073,
+    "train_step_seconds": 6.568926572799683,
+    "train_log_sha256": "a0ff1244d80f209e580b6dd3f2cf533887ab64c8e6b88b6a296f266a200724dc"
+  },
+  "postflight": {
+    "selected_gpu_memory_mib": [11, 11],
+    "selected_gpu_utilization_percent": [0, 0]
+  },
+  "truth_boundary": "This proves a controlled 10-step SFT run, full optimizer-state checkpointing, adapter export/load, and exact-state resume execution. It does not prove convergence or Base-to-SFT quality improvement."
+}

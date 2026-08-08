@@ -1,0 +1,69 @@
+{
+  "dataset_version": "final-tool-loop-test-v1",
+  "status": "frozen_before_evaluation",
+  "formal_split": "test",
+  "cases": 90,
+  "selection_seed": "deeptrace-final-test-20260730-v1",
+  "transport": "datasets-server",
+  "skip_first": 2,
+  "excluded_question_count": 53,
+  "sources": [
+    {
+      "name": "hotpotqa",
+      "repository": "hotpotqa/hotpot_qa",
+      "config": "distractor",
+      "split": "validation",
+      "revision": "1908d6afbbead072334abe2965f91bd2709910ab",
+      "license": "CC-BY-SA-4.0",
+      "candidate_window": 500,
+      "valid_candidates": 500,
+      "selected": 30
+    },
+    {
+      "name": "2wikimultihopqa",
+      "repository": "framolfese/2WikiMultihopQA",
+      "config": "default",
+      "split": "validation",
+      "revision": "fe713bfbd1afbca1a65246741a75890405d56a3a",
+      "license": "Apache-2.0",
+      "candidate_window": 500,
+      "valid_candidates": 500,
+      "selected": 30
+    },
+    {
+      "name": "musique",
+      "repository": "bdsaglam/musique",
+      "config": "answerable",
+      "split": "validation",
+      "revision": "22873a405dd809893b22ada0b499299fb612d2df",
+      "license": "CC-BY-4.0",
+      "candidate_window": 500,
+      "valid_candidates": 500,
+      "selected": 30
+    }
+  ],
+  "artifacts": {
+    "test-controlled.jsonl": {
+      "bytes": 215847,
+      "sha256": "4a0f9f74bdbf8efc568bfad776ac83014aadfab48a0c84dd2fba6fbe51937f4c",
+      "evidence_scope": "gold supporting evidence only"
+    },
+    "test-distractor.jsonl": {
+      "bytes": 829628,
+      "sha256": "0c208f8c1b532c85f6bd0d5a150cf0ecd547d422ce38638be43aca4971fc0013",
+      "evidence_scope": "full upstream context including distractors"
+    }
+  },
+  "overlap_checks": {
+    "excluded_question_overlap": 0,
+    "unique_case_ids": 90,
+    "unique_questions": 90
+  },
+  "metric_policy": {
+    "answer": "normalized exact match against answer or alias",
+    "evidence_recall": "gold evidence IDs read or cited divided by all gold IDs, macro-averaged over cases",
+    "completion": "valid answer action within eight tool steps"
+  },
+  "tuning_policy": "Do not change prompts, protocol gates, model weights, or thresholds after observing these test results.",
+  "truth_boundary": "Labels and supporting facts come from pinned public validation splits. They are benchmark gold, not new human annotation."
+}

@@ -1,0 +1,16 @@
+{
+  "evidence_version": "trajectory-pilot-v1",
+  "status": "succeeded",
+  "artifacts": [
+    {
+      "path": "evidence.json",
+      "bytes": 1913,
+      "sha256": "bda7f40a1c6273582fb89d76acd2b432e5d10518d17412dc0a5ba246094a049b"
+    },
+    {
+      "path": "report.md",
+      "bytes": 984,
+      "sha256": "ce4be3c1893e93f25908ffedc74f329aa5cd60e90833e5658a1d95061524c8b6"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "evidence_version": "trajectory-500-v1",
+  "status": "succeeded",
+  "artifacts": [
+    {
+      "path": "evidence.json",
+      "bytes": 2644,
+      "sha256": "344b8791cf760ef543ff8d303e743afa17216a0d5c3ae554e890a4c4963ae31d"
+    },
+    {
+      "path": "report.md",
+      "bytes": 1439,
+      "sha256": "98a26c93507129666c3360dd8e7c377f32243051039505fec65ca421017b38f6"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "query": "BM25 dense retrieval RRF",
+  "results": [
+    {
+      "title": "BM25 lexical retrieval",
+      "url": "https://docs.example.test/bm25?utm_source=snapshot",
+      "snippet": "A search-result snippet, not the fetched page body.",
+      "rank": 1
+    },
+    {
+      "title": "Dense retrieval and RRF",
+      "url": "https://docs.example.test/dense#overview",
+      "snippet": "A second result whose page body is fetched separately.",
+      "rank": 2
+    },
+    {
+      "title": "Unavailable page",
+      "url": "https://docs.example.test/unavailable",
+      "snippet": "The result exists, but its page read fails.",
+      "rank": 3
+    }
+  ]
+}

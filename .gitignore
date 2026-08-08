@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.venv/
+*.egg-info/
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Runtime state and generated artifacts
+*.db
+*.db-shm
+*.db-wal
+data/uploads/
+data/index/
+data/system/
+data/experiments/
+outputs/
+work/
+logs/
+checkpoints/
+adapters/
+
+# Model weights
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+
+# Web
+node_modules/
+.next/
+.vinext/
+dist/
+.wrangler/
+.sites/
+*.tsbuildinfo
+
+# Editors and operating systems
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

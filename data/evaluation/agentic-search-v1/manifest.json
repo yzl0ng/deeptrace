@@ -1,0 +1,44 @@
+{
+  "dataset_id": "agentic-search-v1",
+  "status": "frozen",
+  "formal_split": "test",
+  "selection": "First two validation rows at each pinned repository revision; selection and verifier thresholds were fixed before evaluation.",
+  "test_cases": 6,
+  "test_sha256": "53ad1ca2de14a79cd53f3b601656e7cd0b61d351463e4df6a3fbb755eafa28fd",
+  "sources": [
+    {
+      "name": "hotpotqa",
+      "repository": "hotpotqa/hotpot_qa",
+      "config": "distractor",
+      "split": "validation",
+      "license": "CC-BY-SA-4.0",
+      "upstream": "https://github.com/hotpotqa/hotpot",
+      "revision": "1908d6afbbead072334abe2965f91bd2709910ab",
+      "offset": 0,
+      "length": 2
+    },
+    {
+      "name": "2wikimultihopqa",
+      "repository": "framolfese/2WikiMultihopQA",
+      "config": "default",
+      "split": "validation",
+      "license": "Apache-2.0",
+      "upstream": "https://github.com/Alab-NII/2wikimultihop",
+      "revision": "fe713bfbd1afbca1a65246741a75890405d56a3a",
+      "offset": 0,
+      "length": 2
+    },
+    {
+      "name": "musique",
+      "repository": "bdsaglam/musique",
+      "config": "answerable",
+      "split": "validation",
+      "license": "CC-BY-4.0",
+      "upstream": "https://github.com/stonybrooknlp/musique",
+      "revision": "22873a405dd809893b22ada0b499299fb612d2df",
+      "offset": 0,
+      "length": 2
+    }
+  ],
+  "tuning_policy": "The test split must not be used to change verifier thresholds or scripted mode policies."
+}

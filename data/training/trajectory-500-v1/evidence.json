@@ -1,0 +1,81 @@
+{
+  "evidence_version": "trajectory-500-v1",
+  "status": "succeeded",
+  "sources": {
+    "hotpotqa": {
+      "records": 167,
+      "revision": "1908d6afbbead072334abe2965f91bd2709910ab"
+    },
+    "2wikimultihopqa": {
+      "records": 167,
+      "revision": "fe713bfbd1afbca1a65246741a75890405d56a3a"
+    },
+    "musique": {
+      "records_before_cap": 167,
+      "records_used": 166,
+      "revision": "22873a405dd809893b22ada0b499299fb612d2df"
+    }
+  },
+  "seeds": {
+    "records": 500,
+    "unique_ids": 500,
+    "unique_queries": 500,
+    "bytes": 735593,
+    "sha256": "f0c2aec38c6bc13ba0e59620b9df042fd176a08de615e9a4e204feb09a412c12"
+  },
+  "teacher": {
+    "provider": "DeepSeek API",
+    "requested": 500,
+    "raw_records": 500,
+    "prompt_tokens": 253162,
+    "completion_tokens": 774936,
+    "total_tokens": 1028098
+  },
+  "refiltered": {
+    "accepted": 479,
+    "rejected": 21,
+    "acceptance_rate": 0.958,
+    "unique_accepted_ids": 479,
+    "unique_trajectory_hashes": 479,
+    "artifacts": [
+      {
+        "path": "datasets/trajectory-500-v1/raw.jsonl",
+        "bytes": 1152714,
+        "sha256": "af00ece131333eab7891f0d178804bf15d011a907cdd62ce5c51d173adb50190"
+      },
+      {
+        "path": "datasets/trajectory-500-v1/refiltered/sft.jsonl",
+        "bytes": 980401,
+        "sha256": "e3d202f91ac8a2b775f3f0acb28b3d682bb3f7b94236ee31a57aa0391932ae34"
+      },
+      {
+        "path": "datasets/trajectory-500-v1/refiltered/rejected.jsonl",
+        "bytes": 2727,
+        "sha256": "9144b84890e48d8f1901ec45de299be31b715bdd6a75862feb4dcdeefac90be6"
+      }
+    ]
+  },
+  "sft_split": {
+    "train_records": 431,
+    "validation_records": 48,
+    "unique_ids": 479,
+    "unique_trajectory_hashes": 479,
+    "frozen_test_question_overlap": 0,
+    "train_sha256": "d1b8f831a73f264b150892bb84b277681a1cede3804b41f55e375d76e00c5a48",
+    "validation_sha256": "665020c364cd76fff76977e578ee0074d2970cfaa441935cb19d808954b3553b"
+  },
+  "tokenizer_validation": {
+    "status": "succeeded",
+    "train_maximum_tokens": 1005,
+    "validation_maximum_tokens": 708,
+    "zero_assistant_loss_records": 0,
+    "sha256": "642c219ce6f56ea26372138092c66ae3fc0b4752f5f9c7d8f37f035a989fb424"
+  },
+  "review_packet": {
+    "status": "awaiting_human_review",
+    "accepted_records": 15,
+    "rejected_records": 10,
+    "manifest_sha256": "98b9e863cd5216883d8c1f23a653f090e543cbe2c4d01150c9ce20980af08262"
+  },
+  "truth_boundary": "The 500-call expansion, deterministic filtering, uniqueness, tokenizer compatibility, and frozen-test leakage checks are proven. The review packet remains unreviewed, so semantic quality is not approved."
+}

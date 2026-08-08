@@ -1,0 +1,27 @@
+@media (max-width: 680px) {
+  .workbench .live-step-inspector { padding: 28px 20px; }
+  .workbench .live-io-grid { grid-template-columns: 1fr; }
+  .workbench .live-io-grid section + section { border-left: 0; border-top: 1px solid #536164; }
+  .workbench .live-step-inspector h3 { font-size: 24px; }
+}
+
+.workbench .live-event-list small em {
+  display: block;
+  margin-bottom: 3px;
+  color: #b9df4b;
+  font: 600 7px var(--font-mono);
+  font-style: normal;
+  letter-spacing: .06em;
+}
+.workbench .live-actor {
+  display: inline-block;
+  margin: 24px 8px 0 0;
+  padding: 7px 10px;
+  background: #b9df4b;
+  color: #17201d;
+  font: 700 9px var(--font-mono);
+  letter-spacing: .07em;
+}
+.workbench .live-actor.deepseek { background: #8bc7ff; }
+.workbench .live-actor.runtime { background: #d8d4c5; }
+.workbench .live-actor.tool { background: #f0b45c; }

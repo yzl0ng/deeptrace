@@ -1,0 +1,49 @@
+import type { Metadata } from "next";
+import { SiteFooter, SiteHeader } from "../site-shell";
+
+export const metadata: Metadata = { title: "Evaluation" };
+
+const datasets = [
+  { name: "HotpotQA", count: "30 held-out", description: "Wikipedia questions that require bridge or comparison reasoning across documents, with sentence-level supporting facts.", em: "66.67%", f1: "76.56%", recall: "55.00%", href: "https://aclanthology.org/D18-1259/" },
+  { name: "2WikiMultiHopQA", count: "30 held-out", description: "Multi-hop questions built from structured and unstructured Wikipedia evidence, with explicit reasoning paths.", em: "53.33%", f1: "62.92%", recall: "60.00%", href: "https://aclanthology.org/2020.coling-main.580/" },
+  { name: "MuSiQue", count: "30 held-out", description: "Connected 2–4 hop question compositions designed to resist shortcuts and require each intermediate step.", em: "46.67%", f1: "60.72%", recall: "56.67%", href: "https://aclanthology.org/2022.tacl-1.31/" },
+];
+
+const emMethods = [
+  { name: "DeepTrace-R1", setting: "Qwen3-8B · 500 candidates / 479 accepted · no RL", hotpot: "66.67", wiki: "53.33", musique: "46.67", macro: "55.56", width: "98.0%", ours: true },
+  { name: "Search-R1 PPO", setting: "Qwen2.5-7B · E5 · 2018 Wikipedia", hotpot: "43.30", wiki: "38.20", musique: "19.60", macro: "33.70", width: "59.5%" },
+  { name: "IRCoT reproduction", setting: "GPT-4o-mini · iterative unstructured retrieval", hotpot: "50.10", wiki: "62.60", musique: "16.70", macro: "43.13", width: "76.1%" },
+  { name: "HiGraAgent", setting: "GPT-4o-mini · hierarchical graph · dual agent", hotpot: "57.40", wiki: "73.60", musique: "39.00", macro: "56.67", width: "100%" },
+];
+
+export default function Evaluation() {
+  return <><SiteHeader/><main>
+    <section className="page-hero shell"><div className="eyebrow">EVALUATION / HELD-OUT + PUBLIC CONTEXT</div><h1>Competitive signal, with the comparison boundary visible.</h1><p>DeepTrace-R1 reaches 55.56% macro EM and 66.73% macro F1 on 90 unseen multi-hop questions. This page separates our strict Base-vs-SFT experiment from directional comparisons with published search-agent systems.</p></section>
+
+    <section className="content-section shell"><div className="section-heading"><span className="section-index">01 / WHAT WAS TESTED</span><h2>Three benchmarks, three kinds of evidence chaining.</h2></div>
+      <div className="dataset-grid">{datasets.map((dataset) => <article key={dataset.name}><div><span>{dataset.count}</span><a href={dataset.href} target="_blank" rel="noreferrer">official paper ↗</a></div><h3>{dataset.name}</h3><p>{dataset.description}</p><dl><div><dt>EM</dt><dd>{dataset.em}</dd></div><div><dt>F1</dt><dd>{dataset.f1}</dd></div><div><dt>Evidence recall</dt><dd>{dataset.recall}</dd></div></dl></article>)}</div>
+      <div className="eval-protocol" aria-label="evaluation protocol"><article><b>01</b><span>Freeze samples</span><p>30 items from each official validation split; zero overlap with 500 training seeds, 47 dev cases and 6 early tests.</p></article><article><b>02</b><span>Expose evidence</span><p>Only frozen gold supporting paragraphs are available—no distractor corpus, FullWiki index or live web.</p></article><article><b>03</b><span>Run one harness</span><p>Base and SFT use the same runtime contract, action budget, tools, evidence gate and terminal-answer schema.</p></article><article><b>04</b><span>Score outputs</span><p>Normalized answer EM/F1, gold-evidence recall, completion, invalid actions and final-protocol failures.</p></article></div>
+    </section>
+
+    <section className="content-section shell"><div className="section-heading"><span className="section-index">02 / STRICT INTERNAL COMPARISON</span><h2>Base → SFT under the same harness.</h2></div>
+      <div className="data-table"><div className="data-row header"><span>Metric</span><span>Base</span><span>SFT</span><span>Change</span></div><div className="data-row"><span>Exact Match</span><strong>8.89%</strong><strong className="win">55.56%</strong><span>+46.67 pts</span></div><div className="data-row"><span>Answer F1</span><strong>9.75%</strong><strong className="win">66.73%</strong><span>+56.98 pts</span></div><div className="data-row"><span>Completion</span><strong>15.56%</strong><strong className="win">100%</strong><span>+84.44 pts</span></div><div className="data-row"><span>Evidence recall</span><strong>25.28%</strong><strong className="win">57.22%</strong><span>+31.94 pts</span></div></div>
+      <div className="big-number-grid reliability-grid"><div><strong>19 → 0</strong><span>Invalid actions</span><p>Malformed or unsupported runtime actions.</p></div><div><strong>65 → 0</strong><span>Protocol failures</span><p>Runs missing the required terminal answer.</p></div><div><strong>90 / 90</strong><span>Completed</span><p>Every SFT run reached a valid terminal state.</p></div><div><strong>2 epochs</strong><span>Training budget</span><p>431 train / 48 validation trajectories; LoRA, no RL.</p></div></div>
+    </section>
+
+    <section className="content-section shell comparison-section"><div className="section-heading"><span className="section-index">03 / PUBLIC METHOD CONTEXT</span><h2>Where the result sits among search agents.</h2></div>
+      <div className="position-grid"><article><strong>+21.86</strong><span>macro EM points vs Search-R1 PPO</span><p>A same-scale 7B RL search-policy reference; our environment is easier, so this is a position signal—not a head-to-head win.</p></article><article><strong>−1.11</strong><span>macro EM points vs HiGraAgent</span><p>Near a GPT-4o-mini system with a hierarchical knowledge graph and two coordinating agents, using 479 accepted SFT trajectories and no RL.</p></article></div>
+      <div className="macro-chart" aria-label="macro exact match comparison">{emMethods.map((method) => <div className={method.ours ? "ours" : ""} key={method.name}><span>{method.name}</span><i><b style={{width: method.width}}/></i><strong>{method.macro}%</strong></div>)}</div>
+      <div className="comparison-table-wrap"><div className="comparison-table"><div className="comparison-row header"><span>System / setting</span><span>HotpotQA</span><span>2Wiki</span><span>MuSiQue</span><span>Macro EM</span></div>{emMethods.map((method) => <div className={`comparison-row${method.ours ? " ours" : ""}`} key={method.name}><span><strong>{method.name}</strong><small>{method.setting}</small></span><span>{method.hotpot}%</span><span>{method.wiki}%</span><span>{method.musique}%</span><span><strong>{method.macro}%</strong></span></div>)}</div></div>
+      <h3 className="subsection-title">Answer F1 reference</h3>
+      <div className="comparison-table-wrap"><div className="comparison-table"><div className="comparison-row header"><span>System / setting</span><span>HotpotQA</span><span>2Wiki</span><span>MuSiQue</span><span>Macro F1</span></div><div className="comparison-row ours"><span><strong>DeepTrace-R1</strong><small>Qwen3-8B · controlled</small></span><span>76.56%</span><span>62.92%</span><span>60.72%</span><span><strong>66.73%</strong></span></div><div className="comparison-row"><span><strong>SPARKLE</strong><small>Qwen2.5-7B · adaptive agentic RAG</small></span><span>63.14%</span><span>64.78%</span><span>32.85%</span><span><strong>53.59%</strong></span></div><div className="comparison-row"><span><strong>HiGraAgent</strong><small>GPT-4o-mini · graph + dual agent</small></span><span>74.80%</span><span>80.40%</span><span>58.00%</span><span><strong>71.07%</strong></span></div></div></div>
+      <div className="note"><strong>How to read this table:</strong> public-method values come from their papers or the cited unified reproduction, not from our code and 90-question sample. Corpus size, retriever, model, sample count and budgets differ. They show approximate research position; only the Base-vs-SFT table above is a strict causal comparison.</div>
+    </section>
+
+    <section className="content-section shell"><div className="section-heading"><span className="section-index">04 / PRIOR UPPER REFERENCE</span><h2>What earlier systems achieved.</h2></div>
+      <div className="upper-reference"><div><span>HotpotQA official distractor leaderboard</span><strong>72.69 EM / 85.04 F1</strong><p>Beam Retrieval, single model. This is a specialized full leaderboard result and is not the same sample, model or evaluation budget as our controlled 30-question slice.</p></div><div><span>DeepTrace-R1 · controlled HotpotQA</span><strong>66.67 EM / 76.56 F1</strong><p>A useful upper reference gap of 6.02 EM and 8.48 F1 points—without turning unlike settings into a false ranking.</p></div></div>
+      <div className="source-links"><span>PRIMARY SOURCES</span><a href="https://arxiv.org/abs/2503.09516" target="_blank" rel="noreferrer">Search-R1 ↗</a><a href="https://aclanthology.org/2023.acl-long.557/" target="_blank" rel="noreferrer">IRCoT ↗</a><a href="https://aclanthology.org/2026.acl-long.1793/" target="_blank" rel="noreferrer">SPARKLE ↗</a><a href="https://aclanthology.org/2026.findings-eacl.62/" target="_blank" rel="noreferrer">HiGraAgent ↗</a><a href="https://hotpotqa.github.io/" target="_blank" rel="noreferrer">HotpotQA leaderboard ↗</a></div>
+    </section>
+
+    <section className="truth shell"><div><span className="section-index">05 / CLAIM BOUNDARY</span><h2>Strong prototype result, not an open-web SOTA claim.</h2></div><div className="truth-copy"><p><strong>Supported:</strong> filtered trajectories taught a Qwen3-8B policy reliable tool use and raised held-out answer quality sharply under a frozen controlled-evidence protocol.</p><p><strong>Not yet supported:</strong> superiority under distractor retrieval, FullWiki or live-web search. The next honest milestone is a frozen production-like retrieval corpus, more held-out questions and repeated runs with confidence intervals.</p></div></section>
+  </main><SiteFooter/></>;
+}

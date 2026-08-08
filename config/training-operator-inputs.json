@@ -1,0 +1,39 @@
+{
+  "gpu_reservation": {
+    "confirmed": true,
+    "reference": "docs/phase0-training-readiness.md#9-nccl-矩阵"
+  },
+  "runtime_environment": {
+    "confirmed": true,
+    "reference": "data/system/gpu-runtime-smoke-v1/report.md",
+    "python_executable": "/data/$USER/searchlab-v2/runtime/py310-cu128/bin/python",
+    "torch_version": "2.8.0+cu128",
+    "torch_cuda_version": "12.8"
+  },
+  "cuda_toolkit": {
+    "confirmed": true,
+    "reference": "data/system/cuda-toolkit-bootstrap-v1/report.md",
+    "version": "12.8.93",
+    "executable": "/data/$USER/searchlab-v2/toolchains/cuda-12.8/bin/nvcc",
+    "compile_target": "sm_89",
+    "compiler_smoke_sha256": "19879afa92166f0f67d00dc106727d3319a1c8cb4e75f28653389096185463dc"
+  },
+  "storage": {
+    "confirmed": true,
+    "reference": "data/system/storage-layout-v1/report.md",
+    "project_root": "/data/$USER/searchlab-v2/project",
+    "model_root": "/data/$USER/searchlab-v2/models",
+    "data_root": "/data/$USER/searchlab-v2/datasets",
+    "checkpoint_root": "/data/$USER/searchlab-v2/checkpoints"
+  },
+  "student": {
+    "model_id": "Qwen/Qwen3-8B",
+    "revision": "b968826d9c46dd6066d109eabc6255188de91218",
+    "local_path": "/data/$USER/searchlab-v2/models/Qwen--Qwen3-8B/b968826d9c46dd6066d109eabc6255188de91218",
+    "reference": "data/system/model-bootstrap-v1/report.md"
+  },
+  "git_sync": {
+    "confirmed": true,
+    "reference": "data/system/git-sync-v1/report.md"
+  }
+}

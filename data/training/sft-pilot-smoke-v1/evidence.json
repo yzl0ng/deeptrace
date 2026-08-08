@@ -1,0 +1,68 @@
+{
+  "evidence_version": "sft-pilot-smoke-v1",
+  "status": "succeeded",
+  "observed_at": "2026-07-29T14:16:44+08:00",
+  "runtime": {
+    "model": "Qwen/Qwen3-8B",
+    "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+    "torch": "2.8.0+cu128",
+    "nccl": "2.27.3",
+    "trainer": "veRL f9c855f7cf04d603c9546bc01776c74806a879c1",
+    "strategy": "FSDP2",
+    "dtype": "bf16",
+    "lora_rank": 16,
+    "lora_alpha": 32
+  },
+  "launch": {
+    "selection_policy": "two dynamically selected idle GPUs",
+    "selected_physical_devices": [4, 5],
+    "world_size": 2,
+    "train_examples": 89,
+    "validation_examples": 10,
+    "max_length": 1024,
+    "micro_batch_size_per_gpu": 1,
+    "optimizer_steps": 1
+  },
+  "metrics": {
+    "train_loss": 1.0762147903442383,
+    "validation_loss": 1.3273423910140991,
+    "train_step_seconds": 5.836639165878296
+  },
+  "checkpoint": {
+    "remote_path": "checkpoints/sft-pilot-smoke-v1/global_step_1",
+    "artifacts": [
+      {
+        "path": "model_world_size_2_rank_0.pt",
+        "bytes": 8235087103,
+        "sha256": "c38856e09b97b885ff07d860e997e0d803d1a82b540b10f65ad543d9f7706d95"
+      },
+      {
+        "path": "model_world_size_2_rank_1.pt",
+        "bytes": 8235087103,
+        "sha256": "c8023d58b22446c5f48f30637dfa6e37fab485d44a289d07bc51d6b6ed79c152"
+      },
+      {
+        "path": "extra_state_world_size_2_rank_0.pt",
+        "bytes": 15141,
+        "sha256": "a29158a6a27a4c4ff62ee58fb980494756a16fb4fc7c1ee8e3828ff978ae8f5c"
+      },
+      {
+        "path": "extra_state_world_size_2_rank_1.pt",
+        "bytes": 15141,
+        "sha256": "99137b231c0b7c31f85650e14a31513a29f5b0a10a3576794baab429752ab063"
+      },
+      {
+        "path": "data.pt",
+        "bytes": 1947,
+        "sha256": "1ca9c54ab7bd0664a27c0de0fffdc472dc612903d771bdf8a44dfd8c504f0f74"
+      }
+    ]
+  },
+  "postflight": {
+    "selected_gpu_memory_mib": [11, 11],
+    "selected_gpu_utilization_percent": [0, 0],
+    "selected_gpu_compute_processes": 0
+  },
+  "storage_warning": "The default FSDP2 checkpoint stores two full model shards totaling about 16.47 GB. Adapter-only export must be validated before repeated checkpoints.",
+  "truth_boundary": "This proves two-GPU dataset loading, forward pass, backward pass, optimizer step, validation, and checkpoint writing. One step does not prove convergence or model-quality improvement."
+}

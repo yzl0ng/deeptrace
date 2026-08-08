@@ -1,0 +1,51 @@
+{
+  "evidence_version": "base-sft-tool-format-v1",
+  "status": "succeeded_no_improvement",
+  "test": {
+    "dataset": "agentic-search-v1 frozen test",
+    "cases": 6,
+    "max_new_tokens": 640,
+    "decoding": "greedy",
+    "prompt": "identical Base/SFT system and user messages"
+  },
+  "runtime": {
+    "physical_device": 5,
+    "base_model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+    "adapter": "sft-trajectory-500-run-v1/adapter_step_10"
+  },
+  "metrics": {
+    "base": {
+      "format_valid": 0,
+      "cases": 6,
+      "format_valid_rate": 0.0,
+      "mean_latency_seconds": 5.024410157774885,
+      "mean_generated_tokens": 181.66666666666666
+    },
+    "sft": {
+      "format_valid": 0,
+      "cases": 6,
+      "format_valid_rate": 0.0,
+      "mean_latency_seconds": 9.163203765793392,
+      "mean_generated_tokens": 180.16666666666666
+    }
+  },
+  "artifacts": [
+    {
+      "path": "datasets/base-sft-tool-format-v1/predictions.jsonl",
+      "bytes": 10851,
+      "sha256": "e9ccc486e5b5518dfbc28bde97dfc8355a01404e5708e07cfcc03b20b60ec9b8"
+    },
+    {
+      "path": "datasets/base-sft-tool-format-v1/summary.json",
+      "bytes": 706,
+      "sha256": "06198f65b3aa2e90bd599cd27dd3609a31335f988f679afe6d06ddeaf9343077"
+    },
+    {
+      "path": "datasets/base-sft-tool-format-v1/manifest.json",
+      "bytes": 371,
+      "sha256": "455cd18b5d8c6fffc84eb7615744be4fb73abb87fdcc8aaa7e727ebe84a7ff87"
+    }
+  ],
+  "test_reuse_boundary": "These six frozen cases have now been observed. Do not tune training duration or prompts against them and then report the same cases as an untouched final test.",
+  "truth_boundary": "The evaluation proves no strict JSON tool-format gain after ten SFT steps. It does not evaluate executed tools or answer correctness."
+}

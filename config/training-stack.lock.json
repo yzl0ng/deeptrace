@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "agent_r1_commit": "b124aa46534cbf2fb8bc8af11405774984c42ac7",
+  "verl_commit": "f9c855f7cf04d603c9546bc01776c74806a879c1",
+  "verl_tag": "v0.7.0",
+  "python_minimum": "3.10",
+  "cuda_minimum": "12.8",
+  "cuda_12_minor_compatibility_driver_minimum": "525.60.13",
+  "cuda_12_8_full_driver_minimum": "570.26",
+  "required_nccl_world_sizes": [
+    1,
+    2
+  ]
+}

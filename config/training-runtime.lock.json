@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "python_version": "3.10.12",
+  "python_executable": "/data/$USER/searchlab-v2/runtime/py310-cu128/bin/python",
+  "torch_version": "2.8.0+cu128",
+  "torch_index_url": "https://download.pytorch.org/whl/cu128",
+  "torch_cuda_version": "12.8",
+  "distributed_backend": "fsdp",
+  "cuda_toolchain": {
+    "root": "/data/$USER/searchlab-v2/toolchains/cuda-12.8",
+    "installer": "micromamba 2.6.1",
+    "cuda-nvcc": "12.8.93=0",
+    "cuda-nvcc_linux-64": "12.8.93=0",
+    "cuda-nvcc-tools": "12.8.93=0",
+    "cuda-nvcc-impl": "12.8.93=0",
+    "gcc_linux-64": "13.4.0=h5174b15_28",
+    "gxx_linux-64": "13.4.0=hb11295d_28"
+  },
+  "packages": {
+    "accelerate": "1.14.0",
+    "av": "17.1.0",
+    "codetiming": "1.4.0",
+    "datasets": "5.0.1",
+    "dill": "0.4.1",
+    "flash-attn": "2.8.3",
+    "hydra-core": "1.3.4",
+    "numpy": "1.26.4",
+    "opencv-python-headless": "4.11.0.86",
+    "packaging": "25.0",
+    "pandas": "2.3.3",
+    "peft": "0.20.0",
+    "pyarrow": "25.0.0",
+    "pybind11": "3.0.4",
+    "pylatexenc": "2.11",
+    "qwen-vl-utils": "0.0.14",
+    "ray": "2.48.0",
+    "tensorboard": "2.21.0",
+    "tensordict": "0.10.0",
+    "torchdata": "0.11.0",
+    "transformers": "4.57.6",
+    "vllm": "0.11.0",
+    "wandb": "0.28.1"
+  },
+  "binary_wheels": {
+    "flash-attn": {
+      "filename": "flash_attn-2.8.3+cu12torch2.8cxx11abiTRUE-cp310-cp310-linux_x86_64.whl",
+      "sha256": "75c51f34bb93c5a4438d6b767547ca6c22a9bfc6b29b5646dda98e943cd75d99"
+    }
+  },
+  "verl": {
+    "commit": "f9c855f7cf04d603c9546bc01776c74806a879c1",
+    "source_archive_sha256": "b6a591e178d4ef7290c2c9ea58cbb71bcb7cec360cc218bab85a47d214a80729",
+    "install_mode": "editable-no-deps",
+    "installed_version": "0.7.0.dev0"
+  },
+  "agent_r1": {
+    "commit": "b124aa46534cbf2fb8bc8af11405774984c42ac7",
+    "source_archive_sha256": "07e6a35a159e7ed148d1e4b2b47d5e0158e3b8f60a71e5626f911477dfc7d57b",
+    "install_mode": "site-packages-pth-to-source",
+    "package_import": "passed",
+    "trainer_import": "passed"
+  },
+  "deferred": [
+    "Agent-R1 and veRL GPU runtime validation",
+    "Optional NCCL scale validation at world sizes 4 and 8"
+  ]
+}

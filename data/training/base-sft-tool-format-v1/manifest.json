@@ -1,0 +1,16 @@
+{
+  "evidence_version": "base-sft-tool-format-v1",
+  "status": "succeeded_no_improvement",
+  "artifacts": [
+    {
+      "path": "evidence.json",
+      "bytes": 1781,
+      "sha256": "02f2f1ab7bab65651546ca017635ca5a523281941d6fc792930fcac25aa86494"
+    },
+    {
+      "path": "report.md",
+      "bytes": 1059,
+      "sha256": "651327b9683c695b3dcc48d3a1d58c36c3827e74986ab6a87daad5285c8ebf17"
+    }
+  ]
+}

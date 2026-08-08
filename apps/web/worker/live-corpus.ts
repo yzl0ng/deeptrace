@@ -1,0 +1,33 @@
+export type LiveDocument = {
+  id: string;
+  title: string;
+  content: string;
+  topic: string;
+};
+
+// A deliberately small, versioned evidence corpus copied from SearchLab's
+// pinned BM25 evaluation corpus. Live answers must cite only these IDs.
+export const LIVE_CORPUS: LiveDocument[] = [
+  { id: "doc-001", title: "BM25 关键词检索", topic: "lexical-search", content: "BM25 是基于词频和逆文档频率的经典排序函数。它对专有名词、产品型号、论文名称和精确关键词非常敏感，并通过文档长度归一化避免长文档天然占优。" },
+  { id: "doc-002", title: "Dense Retrieval 语义检索", topic: "dense-retrieval", content: "Dense Retrieval 使用 embedding 将查询和文档映射到向量空间，再用余弦相似度或点积寻找语义相近的内容。它能够匹配不同措辞，但可能遗漏罕见缩写、数字和精确型号。" },
+  { id: "doc-003", title: "RRF 混合搜索融合", topic: "hybrid-search", content: "Reciprocal Rank Fusion 根据文档在多个结果列表中的名次进行融合，不要求 BM25 分数与向量相似度处在同一量纲。混合搜索结合关键词召回和语义召回，通常用于提高候选集合的召回率。" },
+  { id: "doc-004", title: "Cross-Encoder 重排序", topic: "reranking", content: "Cross-Encoder 将查询和候选文档拼接后联合编码，能进行更细致的相关性判断。由于计算成本较高，它通常只处理召回阶段产生的少量候选文档，用于提升前排结果的准确性。" },
+  { id: "doc-005", title: "HNSW 近似最近邻索引", topic: "vector-index", content: "HNSW 使用分层图结构进行近似最近邻搜索，在大规模向量集合中减少查询延迟。efSearch 等参数会影响召回率、内存消耗和查询速度之间的权衡。" },
+  { id: "doc-006", title: "RAG 文档切分策略", topic: "chunking", content: "文档切分会直接影响检索粒度。切分过短容易丢失上下文，切分过长会引入噪声并消耗上下文窗口。Parent-Child Retrieval 可以用短片段匹配查询，再返回更完整的父级上下文。" },
+  { id: "doc-007", title: "RAG 评价指标", topic: "evaluation", content: "RAG 系统应该分别评价检索组件和生成组件。检索可以使用 Recall@K、MRR 和 nDCG，生成可以考察回答正确性、忠实度和引用完整性，同时记录延迟与调用成本。" },
+  { id: "doc-008", title: "可信回答与引用", topic: "grounding", content: "可追溯的 RAG 回答需要把结论绑定到检索证据，展示来源、页码和原始片段。当知识库中没有充分证据时，系统应该拒绝回答，而不是依赖模型参数知识编造内容。" },
+  { id: "doc-010", title: "余弦相似度与点积", topic: "vector-similarity", content: "余弦相似度比较两个向量方向是否接近。文档向量与查询向量完成 L2 归一化后，矩阵点积等价于余弦相似度，因此可以使用 NumPy 高效计算精确排名。" },
+  { id: "doc-012", title: "KNN 与 ANN 的区别", topic: "ann-search", content: "KNN 精确搜索会检查全部候选向量，结果没有近似索引误差；ANN 通过索引减少计算，只返回近似最近邻。ANN Recall 衡量近似结果保留了多少 Exact Top-K。" },
+  { id: "doc-013", title: "HNSW 参数", topic: "hnsw-parameters", content: "efConstruction 控制 HNSW 建图时搜索候选的范围，主要影响索引质量和构建时间；efSearch 控制查询时探索范围，通常越大召回率越高，但查询延迟也会增加。" },
+  { id: "doc-015", title: "Chunk Overlap 重叠窗口", topic: "chunking", content: "Chunk overlap 在相邻片段之间保留一部分重复文本，能够减少答案跨切分边界时的信息丢失。重叠过大会制造重复候选、增加索引体积，并可能挤占最终上下文。" },
+  { id: "doc-017", title: "Query Rewrite 查询改写", topic: "query-processing", content: "查询改写把口语问题转换成更适合检索的表达，也可以补充缩写全称或拆分多跳问题。错误改写会改变用户意图，因此必须保留原查询并评价改写前后的召回差异。" },
+  { id: "doc-019", title: "Recall 与 Precision", topic: "retrieval-metrics", content: "Recall@K 衡量全部相关文档中有多少进入 Top-K，Precision@K 衡量返回的 K 个位置中有多少相关。召回阶段通常更关心 Recall，因为后续重排序无法找回已经漏掉的证据。" },
+  { id: "doc-020", title: "MRR 与 nDCG", topic: "retrieval-metrics", content: "MRR 使用第一个相关结果的倒数排名，适合关注首个正确答案的场景。nDCG 同时考虑相关性等级和排名位置，能够惩罚高度相关文档被排到后面。" },
+  { id: "doc-021", title: "Bi-Encoder 与 Cross-Encoder", topic: "retranking", content: "Bi-Encoder 分别编码查询和文档，文档向量可以离线缓存，适合大规模召回。Cross-Encoder 联合读取查询与文档，判断更精细但成本更高，适合对少量候选重排序。" },
+  { id: "doc-022", title: "RRF Rank Constant", topic: "hybrid-search", content: "RRF 公式中的 rank constant 会平滑不同名次之间的贡献差异。常用默认值是 60；它不是学习得到的万能参数，应该结合固定评价集做敏感性实验。" },
+  { id: "doc-023", title: "Candidate K 与 Top K", topic: "retrieval-configuration", content: "candidate_k 是每条召回路径交给融合或重排序的候选数量，top_k 是最终返回数量。candidate_k 必须不小于 top_k，过小会漏召回，过大会增加融合和重排序成本。" },
+  { id: "doc-024", title: "模型幻觉的来源", topic: "rag-failures", content: "模型产生幻觉可能来自知识库缺失、检索错误、上下文噪声、提示约束不足或生成模型忽略证据。仅仅增加文档数量不能解决问题，需要区分错误发生在哪一层。" },
+  { id: "doc-025", title: "证据不足时拒绝回答", topic: "abstention", content: "当检索结果与问题无关、证据互相矛盾或置信度不足时，RAG 系统应该明确说明无法回答。拒答策略需要无答案测试集，不能只依赖一个固定相似度阈值。" },
+  { id: "doc-026", title: "引用正确性与完整性", topic: "citation-evaluation", content: "引用正确性检查引用片段是否支持对应结论，引用完整性检查关键结论是否都有证据。存在引用编号并不代表回答可信，引用还必须能追溯到真实来源。" },
+  { id: "doc-030", title: "P50 与 P95 检索延迟", topic: "latency", content: "P50 表示一半查询不超过该延迟，P95 用来观察长尾慢请求。延迟报告必须同时记录语料规模、device、缓存状态和计时边界，不能只展示一次最快结果。" },
+];

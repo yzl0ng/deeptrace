@@ -1,0 +1,1 @@
+"""SearchLab application package."""
